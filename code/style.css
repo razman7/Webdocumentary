@@ -11,8 +11,6 @@ body{
   width: 100%;
   background-image: url(images/forest.jpg);
   display: flex;
-  align-items: center;
-  justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
@@ -22,7 +20,13 @@ body{
 
 #dea{
   margin: 0;
-  color: red;
+  color: #333;
+  left: 25%;
+  top: 25%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 5.1em;
+  position: relative;
 }
 
 #first_video{
@@ -32,6 +36,43 @@ body{
   align-items: center;
   position: relative;
   margin-top: 100vh;
+}
+video{
+  max-height: 100vh;
+}
+
+#parts{
+  height: 100vh;
+  background-color: pink;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+
+
+#pic1{
+  grid-column-start: 1;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  background-image: url(images/ph.jpg);
+  width: 432px;
+  height: 768px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#text1{
+  grid-column-start: 2;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5em;
+  line-height: 1.4;
+  margin-left: 2%;
+  margin-right: 30%;
+  width: 400px;
 }
 
 #warning_message {
@@ -45,16 +86,17 @@ body{
   top: 0;
   text-align: center;
   animation: fadein 1s;
-  opacity: 0.9;
+  opacity: 1;
+  font-family: "Fira Sans", sans-serif;
 }
 @keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 0.9; }
+    to   { opacity: 1; }
 }
 
 #landscape_message{
   margin: 0;
-  font-size: 1.5em;
+  font-size: 5em;
   writing-mode: vertical-lr;
 }
 
@@ -70,7 +112,6 @@ body{
         }
     }
     @media only screen
-      and (min-device-width: 375px)
       and (max-device-width: 812px)
       and (orientation:landscape){
         #warning_message {
@@ -82,7 +123,23 @@ body{
           display: none;
         }
         @keyframes fadeout {
-            from { opacity: 0.9; }
+            from { opacity: 1; }
             to   { opacity: 0; display: none}
+        }
+        #dea{
+          left: 5%;
+          top: 5%;
+        }
+        #pic1{
+          background-image: url(images/ph.jpg);
+          text-align: center;
+          width: 194px;
+          height: 345px;
+        }
+        #text1{
+          font-size: 1em;
+          margin: 0;
+          width: 300px;
+          margin-right: 15%;
         }
     }
