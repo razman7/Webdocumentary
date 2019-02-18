@@ -9,7 +9,7 @@ body{
 #start{
   height: 100vh;
   width: 100%;
-  background-image: url(images/forest.jpg);
+  background-image: url(images/landpic.jpg);
   display: flex;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,15 +23,15 @@ body{
   color: #333;
   left: 25%;
   top: 25%;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-size: 5.1em;
+  font-family: "Roboto", cursive;
+  font-weight: 700;
+  font-size: 7.56em;
   position: relative;
 }
 
 #first_video{
   height: 100vh;
-  background-color: green;
+  background-color: #fafafc;
   display: flex;
   align-items: center;
   position: relative;
@@ -43,7 +43,7 @@ video{
 
 #parts{
   height: 100vh;
-  background-color: pink;
+  background-color: #fafafc;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
@@ -51,18 +51,41 @@ video{
   justify-items: center;
   position: relative;
 }
-
-
 #pic1{
   grid-column-start: 1;
   margin-left: 5%;
   margin-right: 5%;
   text-align: center;
-  background-image: url(images/ph.jpg);
-  width: 432px;
-  height: 768px;
+  background-image: url(images/1.jpg);
+  background-position: center;
+  width: 100%;
+  height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
+  min-width: 400px;
+  opacity: 0;
+}
+
+.animate{
+	animation: fade-in-bottom 1s ease-out forwards;
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+#test{
+  width: 100%;
+  background-color: red;
+  height: 200px;
 }
 
 #text1{
@@ -71,8 +94,8 @@ video{
   font-size: 1.5em;
   line-height: 1.4;
   margin-left: 2%;
-  margin-right: 30%;
-  width: 400px;
+  margin-right: 15%;
+  width: 500px;
 }
 
 #warning_message {
@@ -80,12 +103,12 @@ video{
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: #333;
-  color: #fff;
+  background-color: #fafafc;
+  color: #333;
   z-index: 99;
   top: 0;
   text-align: center;
-  animation: fadein 1s;
+  animation: fadein .8s;
   opacity: 1;
   font-family: "Fira Sans", sans-serif;
 }
@@ -97,18 +120,22 @@ video{
 #landscape_message{
   margin: 0;
   font-size: 5em;
-  writing-mode: vertical-lr;
+  writing-mode: vertical-rl;
 }
 
-    @media only screen and (orientation: portrait){
+    @media only screen
+      and (max-device-width: 375px)
+      and (orientation: portrait){
         body{
           overflow: hidden;
+          visibility: hidden;
         }
 
         #warning_message {
           display: flex;
           align-content: center;
           justify-content: center;
+          visibility: visible;
         }
     }
     @media only screen
@@ -116,7 +143,7 @@ video{
       and (orientation:landscape){
         #warning_message {
           display:flex;
-          animation: fadeout 1s;
+          animation: fadeout .8s;
           opacity: 0;
         }
         #landscape_message{
@@ -131,15 +158,15 @@ video{
           top: 5%;
         }
         #pic1{
-          background-image: url(images/ph.jpg);
           text-align: center;
-          width: 194px;
-          height: 345px;
+          margin: 0;
+          width: 70%;
+          height: 100%;
         }
         #text1{
           font-size: 1em;
           margin: 0;
-          width: 300px;
+          width: 260px;
           margin-right: 15%;
         }
     }
