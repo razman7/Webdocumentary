@@ -6,6 +6,21 @@ body{
   box-sizing: border-box;
 }
 
+/* for later haha */
+/*.container{
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+}
+section{
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+} */
+
 #start{
   height: 100vh;
   width: 100%;
@@ -20,7 +35,7 @@ body{
 
 #dea{
   margin: 0;
-  color: #333;
+  color: #9D9DAF;
   left: 25%;
   top: 25%;
   font-family: "Roboto", cursive;
@@ -41,29 +56,153 @@ video{
   max-height: 100vh;
 }
 
-#parts{
+/* main divs */
+.part{
   height: 100vh;
   background-color: #fafafc;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
   position: relative;
+
+  scroll-snap-align: start;
 }
-#pic1{
-  grid-column-start: 1;
+.pic{
   margin-left: 5%;
   margin-right: 5%;
+  grid-row: span 5;
   text-align: center;
-  background-image: url(images/1.jpg);
   background-position: center;
   width: 100%;
-  height: 100%;
+  height: 80%;
   background-size: contain;
   background-repeat: no-repeat;
-  min-width: 400px;
+  min-width: 350px;
+}
+.text{
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5em;
+  line-height: 1.4;
+  margin-left: 2%;
+  margin-right: 15%;
+  width: 500px;
+  grid-row: 2 / span 3;
+}
+.ill{
+
+}
+/* main divs */
+
+/*animation for left*/
+@keyframes fade-in {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+.fade-in-element {
+  animation: fade-in 1.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.hidden {
   opacity: 0;
+}
+/*animation for left*/
+
+/*animation for right*/
+@keyframes fade-in2 {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+.fade-in-element2 {
+  animation: fade-in2 1.9s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.hidden2 {
+  opacity: 0;
+}
+/*animation for right*/
+
+#pic1{
+  grid-column-start: 1;
+  background-image: url(images/1.jpg);
+  opacity: 1;
+}
+#text1{
+  grid-column: 2;
+  z-index:1;
+
+}
+#ill1{
+  grid-column:  2;
+  grid-row: 3 / span 4;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  opacity: .2;
+}
+
+#pic2{
+  grid-column-start: 2;
+  background-image: url(images/2.jpg);
+}
+#text2{
+  grid-column-start: 1;
+  grid-row: 2 / span 3;
+  margin-left: 15%;
+  margin-right: 2%;
+}
+
+#pic3{
+  grid-column-start: 1;
+  background-image: url(images/3.jpg);
+}
+#text3{
+  grid-column-start: 2;
+}
+
+#pic4{
+  grid-column-start: 2;
+  background-image: url(images/4.jpg);
+}
+#text4{
+  grid-column-start: 1;
+  grid-row: 2 / span 3;
+  margin-left: 15%;
+  margin-right: 2%;
+}
+
+#pic5{
+  grid-column-start: 1;
+  background-image: url(images/5.jpg);
+}
+#text5{
+  grid-column-start: 2;
+}
+
+#pic6{
+  grid-column-start: 2;
+  background-image: url(images/6.jpg);
+}
+#text6{
+  grid-column-start: 1;
+  grid-row: 2 / span 3;
+  margin-left: 15%;
+  margin-right: 2%;
 }
 
 .animate{
@@ -72,30 +211,13 @@ video{
 
 @keyframes fade-in-bottom {
   0% {
-    transform: translateY(50px);
+    transform: translateY(100px);
     opacity: 0;
   }
   100% {
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-
-#test{
-  width: 100%;
-  background-color: red;
-  height: 200px;
-}
-
-#text1{
-  grid-column-start: 2;
-  font-family: "Fira Sans", sans-serif;
-  font-size: 1.5em;
-  line-height: 1.4;
-  margin-left: 2%;
-  margin-right: 15%;
-  width: 500px;
 }
 
 #warning_message {
@@ -157,16 +279,24 @@ video{
           left: 5%;
           top: 5%;
         }
-        #pic1{
+        .pic{
           text-align: center;
           margin: 0;
           width: 70%;
           height: 100%;
         }
-        #text1{
+        .text{
           font-size: 1em;
           margin: 0;
           width: 260px;
           margin-right: 15%;
         }
     }
+
+    @media only screen
+      and (max-device-width: 1024px){
+        #dea{
+          left: 5%;
+          top: 5%;
+        }
+      }

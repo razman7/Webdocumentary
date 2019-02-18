@@ -32,4 +32,4 @@ function animate() {
       // element is in view, add class to element
       element.classList.add('animate');
   }
-}
+}  
