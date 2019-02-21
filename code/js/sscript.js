@@ -77,7 +77,7 @@ window.onload = function() { //executes this code after the DOM loads
   }
 }
 
-var v = document.getElementByTagName('video');
+/*var v = document.getElementByTagName('video');
 v.addEventListener(
     'play',
     function() {
@@ -93,4 +93,8 @@ v.onclick = function() {
     }
 
     return false;
-};
+};*/
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
